@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #191b1c;
+  color: #fff;
+}
+
+.top-column {
+  width: 100%;
+  height: 60px;
+  background: #282a2c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-container img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.top-column h1 {
+  font-size: 24px;
+}
+
+.top-column nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+.top-column nav a:hover {
+  text-decoration: underline;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 60px);
+  min-height: 360px;
+}
+
+.left-pane {
+  flex: 0 0 20%;
+  min-width: 180px;
+  overflow: auto;
+  border-right: 1px solid #444;
+  padding: 10px;
+  background: #191b1c;
+}
+
+.right-pane {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding: 10px;
+  background: #191b1c;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.button-image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.button-image:hover {
+  transform: scale(1.1);
+}
+
+.note-box {
+  color: #fff;
+  border: 1px solid #333;
+  padding: 15px;
+  margin: 5px 0;
+  background: #1f1f1f;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.note-box:hover {
+  background: #202027;
+}
+
+.note-box.selected {
+  background: #d2a230;
+  border-color: #357edd;
+  color: #fff;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #282a2c;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: calc(100% - 48px);
+}
+
+#note-title,
+#note-content,
+#gpt2-input {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  width: 100%;
+  background: #1f1f1f;
+  color: white;
+}
+
+#note-content {
+  flex: 1;
+  min-height: 240px;
+  resize: vertical;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background: #d2a230;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+button:hover,
+.add-note-button:hover {
+  background: #b88a1e;
+}
+
+.add-note-button {
+  width: 100%;
+  margin: 0 0 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8vh 16px;
+}
+
+.modal-content {
+  background: #fefefe;
+  color: #222;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: min(700px, 100%);
+}
+
+.modal-content h2 {
+  margin-bottom: 12px;
+}
+
+.modal-content #gpt2-input {
+  min-height: 120px;
+  margin-bottom: 10px;
+}
+
+#gpt2-output {
+  margin-top: 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.close {
+  color: #777;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+  color: #111;
+}
+
+@media (max-width: 650px) {
+  .top-column {
+    padding: 0 10px;
+  }
+  .top-column h1 {
+    font-size: 18px;
+  }
+  .top-column nav a {
+    margin-left: 7px;
+    font-size: 13px;
+  }
+  .left-pane {
+    flex-basis: 34%;
+    min-width: 120px;
+  }
+}
